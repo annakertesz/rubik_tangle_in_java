@@ -7,6 +7,7 @@ public class Card {
 
     Color[][] actualSides;
     Color[] colorsInZeroPosition;
+    Card pair;
     int position;
 
 
@@ -14,6 +15,11 @@ public class Card {
         this.colorsInZeroPosition = colors;
         this.actualSides = setSides(0);
         position = 0;
+    }
+
+    public void pair(Card card){
+        pair = card;
+        card.pair = this;
     }
 
     public int isSidesJoinable(Color[] sideToJoin, int neededSide){

@@ -10,6 +10,8 @@ public class Board {
     BoardField[] fields;
     Hand hand;
     ArrayList<Card> wasInFirstPlace;
+    int recursion = 0;
+    int currentField = 0;
 
 
     public Board(ArrayList<Card> cardsInHand) {
@@ -28,12 +30,25 @@ public class Board {
     }
 
     public void makePuzzle(){
-        if (placeCard(0)) System.out.println(this);
-        else System.out.println("FAIL");
+        while (hand.size()>0){
+            if (!placeCard(currentField)) {
+
+                hand.add(fields[currentField-1].card);
+                placeCard(currentField-1);
+            }
+            else break;
+        }
+        System.out.println(this);
+
     }
 
     private boolean placeCard(int indexOfField){
+        currentField = indexOfField;
+        System.out.println(currentField);
 
+//        System.out.println("on position "+indexOfField + " I have "+ hand.size() + " card in my hand");
+        recursion++;
+//        System.out.println(indexOfField);
         if (indexOfField==9) return true;
 
         // on the First Field
@@ -57,7 +72,7 @@ public class Board {
                 }
             }
             if (indexOfField>1) hand.add(fields[indexOfField-1].card);
-            return placeCard(indexOfField-1);
+            return false;
         }
 
     }
@@ -65,7 +80,7 @@ public class Board {
     private boolean placeFirstCard(int position){
          if (position==4){
              hand.add(fields[0].card);
-             if (wasInFirstPlace.size()==9) return false;
+             if (wasInFirstPlace.size()==18) return false;
              for (Card card : hand.inHand){
                  if (wasInFirstPlace.contains(card)) continue;
                  fields[0].card = card;

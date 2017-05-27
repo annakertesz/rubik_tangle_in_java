@@ -19,8 +19,6 @@ public class BoardField {
     }
 
     public boolean placeCard(Card cardToInsert, Hand hand){
-//        System.out.println("    card to insert:\n");
-//        System.out.println(cardToInsert);
         int neededPosition = 4;
         if (topDependency != null) {
             int positionToTop = cardToInsert.isSidesJoinable(topDependency.card.getSide(2), 0);
@@ -36,6 +34,7 @@ public class BoardField {
         if (neededPosition==4) neededPosition=0;
         cardToInsert.setPosition(neededPosition);
         this.card = cardToInsert;
+//        System.out.println("inserted");
         hand.remove(cardToInsert);
         return true;
     }
