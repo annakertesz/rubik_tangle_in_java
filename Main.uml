@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.company.Main</OriginalElement>
+  <nodes>
+    <node x="315.5" y="806.0">com.company.Hand</node>
+    <node x="692.5" y="56.0">com.company.Card</node>
+    <node x="354.0" y="336.0">com.company.BoardField</node>
+    <node x="-3.0" y="556.0">com.company.Board</node>
+    <node x="55.5" y="136.5">com.company.Main</node>
+    <node x="1068.0" y="112.5">com.company.Color</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.company.Card" target="com.company.Color">
+      <point x="0.0" y="-104.0" />
+      <point x="840.0" y="0.0" />
+      <point x="1120.0" y="0.0" />
+      <point x="0.0" y="-47.5" />
+    </edge>
+    <edge source="com.company.Main" target="com.company.Board">
+      <point x="0.0" y="23.5" />
+      <point x="0.0" y="-84.0" />
+    </edge>
+    <edge source="com.company.BoardField" target="com.company.Card">
+      <point x="0.0" y="-64.0" />
+      <point x="440.0" y="200.0" />
+      <point x="-147.5" y="40.0" />
+    </edge>
+    <edge source="com.company.Hand" target="com.company.Card">
+      <point x="124.5" y="-0.0" />
+      <point x="840.0" y="880.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="com.company.Main" target="com.company.Card">
+      <point x="64.5" y="-0.0" />
+      <point x="-147.5" y="-0.0" />
+    </edge>
+    <edge source="com.company.Board" target="com.company.Hand">
+      <point x="123.0" y="40.0" />
+      <point x="440.0" y="680.0" />
+      <point x="0.0" y="-74.0" />
+    </edge>
+    <edge source="com.company.Board" target="com.company.Card">
+      <point x="123.0" y="-0.0" />
+      <point x="800.0" y="640.0" />
+      <point x="-40.0" y="104.0" />
+    </edge>
+    <edge source="com.company.Board" target="com.company.BoardField">
+      <point x="40.0" y="-84.0" />
+      <point x="160.0" y="400.0" />
+      <point x="-86.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="457.125" y="583.125" />
+  <SelectedNodes>
+    <node>com.company.BoardField</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
