@@ -8,12 +8,21 @@ import java.util.ArrayList;
 public class BoardField {
 
     private Card card;
-    private BoardField[] dependencies;
+    BoardField topDependency;
+    BoardField leftDependency;
     private ArrayList<Card> formerNeighbours;
+//    int debugPos;
 
-
-    public BoardField(BoardField[] dependencies) {
-        this.dependencies = dependencies;
+    public BoardField(BoardField topDependency, BoardField leftDependency, int debugPos) {
+//        this.debugPos = debugPos;
+        this.topDependency = topDependency;
+        this.leftDependency = leftDependency;
+//        if (topDependency != null && topDependency.getCard() == null) {
+//            int szar = 5;
+//        }
+//        if (leftDependency != null && leftDependency.getCard() == null) {
+//            int szar = 5;
+//        }
         formerNeighbours = new ArrayList<Card>();
     }
 
@@ -21,20 +30,42 @@ public class BoardField {
     public void removeCard(Hand hand){
         if (!isEmpty()) {
             hand.add(card);
+//            System.out.println("removing card from " + debugPos);
             card = null;
         }
     }
 
 
     public boolean placeCard(Card cardToInsert, Hand hand){
-        int[] neededPosition = new int[2];
-        for (int i = 0; i<2; i++) {
-            if (dependencies[i] == null) neededPosition[i]= 4;
-            else cardToInsert.isEdgesJoinable(dependencies[i].card.getEdge(2-i), 3*i);
+//        int[] neededPosition = new int[2];
+//        for (int i = 0; i<2; i++) {
+//            if (dependencies[i] == null) neededPosition[i]= 4;
+//            else cardToInsert.isEdgesJoinable(dependencies[i].card.getEdge(2-i), 3*i);
+//        }
+//        int rightPosition = calculateRightPosition(neededPosition);
+//        if (rightPosition < 0) return false;
+//        cardToInsert.setPosition(rightPosition);
+//        this.card = cardToInsert;
+//        clearHistory();
+//        hand.remove(cardToInsert);
+//        return true;
+
+//        System.out.println("trying to place a card at " + debugPos);
+        int neededPosition = 4;
+        if (topDependency != null) {
+            int positionToTop = cardToInsert.isEdgesJoinable(topDependency.card.getEdge(2), 0);
+            if (positionToTop == -1) return false;
+            neededPosition = positionToTop;
         }
-        int rightPosition = calculateRightPosition(neededPosition);
-        if (rightPosition < 0) return false;
-        cardToInsert.setPosition(rightPosition);
+        if (leftDependency != null) {
+            int positionToLeft = cardToInsert.isEdgesJoinable(leftDependency.card.getEdge(1), 3);
+            if (neededPosition == 4 || neededPosition == positionToLeft) neededPosition = positionToLeft;
+            else return false;
+        }
+        if (neededPosition < 0) return false;  //felesleges
+        if (neededPosition==4) neededPosition=0; //felesleges
+        cardToInsert.setPosition(neededPosition);
+//        System.out.println("placing card to " + debugPos);
         this.card = cardToInsert;
         clearHistory();
         hand.remove(cardToInsert);

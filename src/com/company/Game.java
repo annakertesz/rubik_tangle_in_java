@@ -36,7 +36,6 @@ public class Game {
             else break;
         }
         System.out.println(board);
-
     }
 
 
@@ -52,7 +51,6 @@ public class Game {
                     return placeCard(indexOfField+1);
                 }
             }
-            board.getField(indexOfField-1).removeCard(hand);
             return false;
         }
     }
@@ -119,15 +117,15 @@ public class Game {
 
     private BoardField[] getMediumBoard(){
         BoardField[] fields = new BoardField[9];
-        fields[0] = new BoardField(new BoardField[]{null,null});
-        fields[1] = new BoardField(new BoardField[]{null,fields[0]});
-        fields[2] = new BoardField(new BoardField[]{null,fields[1]});
-        fields[3] = new BoardField(new BoardField[]{fields[0],null});
-        fields[4] = new BoardField(new BoardField[]{fields[1],fields[3]});
-        fields[5] = new BoardField(new BoardField[]{fields[2],fields[4]});
-        fields[6] = new BoardField(new BoardField[]{fields[3],null});
-        fields[7] = new BoardField(new BoardField[]{fields[4],fields[6]});
-        fields[8] = new BoardField(new BoardField[]{fields[5],fields[7]});
+        fields[0] = new BoardField(null,null, 0);
+        fields[1] = new BoardField(null,fields[0], 1);
+        fields[2] = new BoardField(null,fields[1], 2);
+        fields[3] = new BoardField(fields[0],null, 3);
+        fields[4] = new BoardField(fields[1],fields[3], 4);
+        fields[5] = new BoardField(fields[2],fields[4], 5);
+        fields[6] = new BoardField(fields[3],null, 6);
+        fields[7] = new BoardField(fields[4],fields[6], 7);
+        fields[8] = new BoardField(fields[5],fields[7], 8);
         return fields;
     }
 
