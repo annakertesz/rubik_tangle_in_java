@@ -38,11 +38,6 @@ public class Card {
     }
 
 
-    public void turnCard(){
-        setPosition(position+1);
-    }
-
-
     public void setPosition(int newPosition){
         actualSides = setSides(newPosition*2);
         position = newPosition;

@@ -13,14 +13,6 @@ public class Hand {
         this.inHand = inHand;
     }
 
-    public void repace(Card cardToRemove, Card cardToAdd){
-
-        if (cardToRemove!=null) inHand.remove(cardToRemove);
-        if (cardToAdd!=null) {
-            cardToAdd.setPosition(0);
-            inHand.add(cardToAdd);
-        }
-    }
 
     public void remove(Card card){
         inHand.remove(card);

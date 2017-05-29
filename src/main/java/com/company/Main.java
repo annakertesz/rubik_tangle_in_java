@@ -19,7 +19,7 @@ public class Main {
 
         ArrayList<Card> cards = new ArrayList<Card>(Arrays.asList(first, second, third, forth, fifth, sixth, seventh, eighth, nineth));
         Board board = new Board(cards);
-        board.makePuzzle();
+        board.play();
 
     }
 }

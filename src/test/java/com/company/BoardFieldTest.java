@@ -34,18 +34,18 @@ public class BoardFieldTest {
         cardD = new Card(Color.G, Color.Y, Color.R, Color.B , Color.B, Color.Y, Color.G, Color.R);
         ArrayList<Card> cards = new ArrayList<Card>(Arrays.asList(cardC, cardD));
         hand = new Hand(cards);
-        fieldA.card=cardA;
-        fieldB.card=cardB;
+        fieldA.placeCard(cardA);
+        fieldB.placeCard(cardB);
     }
 
     @Test
     public void placeCard() throws Exception {
-        assertTrue(fieldC.placeCard(cardC, hand));
+        assertTrue(fieldC.placeCard(cardC));
     }
 
     @Test
     public void placeCardWithBadCard() throws Exception {
-        assertFalse(fieldC.placeCard(cardD, hand));
+        assertFalse(fieldC.placeCard(cardD));
     }
 
 }

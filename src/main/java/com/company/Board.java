@@ -10,6 +10,7 @@ public class Board {
     BoardField[] fields;
     Hand hand;
     ArrayList<Card> wasInFirstPlace;
+    static int actualIndex = 0;
 
 
     public Board(ArrayList<Card> cardsInHand) {
@@ -27,73 +28,104 @@ public class Board {
         wasInFirstPlace = new ArrayList<Card>();
     }
 
-    public void makePuzzle(){
-        if (placeCard(0)) System.out.println(this);
-        else System.out.println("FAIL");
+
+    public void play(){
+        if (makePuzzle()) System.out.println(this);
+        else System.out.println("failed");
     }
 
-    private boolean placeCard(int indexOfField){
 
+    private boolean makePuzzle(){
+        if (!placeCard(actualIndex)) {
+            while (wasInFirstPlace.size() < 9) {
+                if (placeCard(actualIndex - 1)) return true;
+            }
+            return false;
+        }
+        return true;
+    }
+
+
+    private boolean placeCard(int indexOfField){
+        actualIndex = indexOfField;
+        System.out.println(indexOfField + " " + hand.size());
         if (indexOfField==9) return true;
         if (indexOfField==0) {
-            if (fields[0].card==null) {
-                fields[0].card=hand.get();
-                hand.remove(fields[0].card);
+            if (fields[0].isEmpty()) {
+                System.out.println("field is empty");
+                fields[0].placeCard(hand.get());
+                hand.remove(fields[0].getCard());
+                wasInFirstPlace.add(fields[0].getCard());
             }
             else if (!placeFirstCard()) return false;
-            return placeCard(indexOfField+1);
+
+            return placeCard(1);
         }
 
 
         else{
+            Card currentCard = fields[indexOfField].getCard();
+            if (currentCard != null) hand.add(currentCard);
+            Card correctCard = null;
             for (Card card : hand.inHand){
-                if (fields[indexOfField-1].wasNeighbour.contains(card)) continue;
-                if (fields[indexOfField].placeCard(card, hand)){
-                    fields[indexOfField-1].wasNeighbour.add(card);
-                    fields[indexOfField].wasNeighbour = new ArrayList<Card>();
-                    return placeCard(indexOfField+1);
+                if (fields[indexOfField-1].wasNeighbour(card)) continue;
+                if (fields[indexOfField].placeCard(card)){
+                    fields[indexOfField-1].addNeighbour(card);
+                    fields[indexOfField].clearHistory();
+//                    correctCard = card;
                 }
             }
-            if (indexOfField>1) hand.add(fields[indexOfField-1].card);
-            return placeCard(indexOfField-1);
+            hand.remove(fields[indexOfField].getCard());
+            System.out.println("I removed a card from hand");
+            return placeCard(indexOfField+1);
+//            return false;
         }
 
     }
 
     private boolean placeFirstCard(){
-         if (fields[0].card.getPosition()==3){
-             hand.add(fields[0].card);
-             if (wasInFirstPlace.size()==9) return false;
+        System.out.println("I'm in placeFirstCard()");
+         if (fields[0].getCardPosition()==3){
+             System.out.println("In position 3");
+             hand.add(fields[0].getCard());
+             if (wasInFirstPlace.size()>9) {
+                 System.out.println("I want to return false");
+                 return false;
+             }
+             System.out.println(hand.size() + " cards in my hand");
              for (Card card : hand.inHand){
                  if (wasInFirstPlace.contains(card)) continue;
-                 fields[0].card = card;
-                 hand.remove(card);
+                 fields[0].setCard(card);
+                 System.out.println("I added a card to first place");
                  wasInFirstPlace.add(card);
-                 fields[0].wasNeighbour = new ArrayList<Card>();
-                 break;
+                     break;
              }
+             hand.remove(fields[0].getCard());
 
         }
-        else fields[0].card.turnCard();
+        else {
+             System.out.println("turned card");
+             fields[0].turnCard();
+         }
         return true;
     }
 
     @Override
     public String toString() {
-        return "\n| " + fields[0].card.getActualSides()[0][0] + " " +   fields[0].card.getActualSides()[0][1] + " || " + fields[1].card.getActualSides()[0][0] + " " +   fields[1].card.getActualSides()[0][1] + " || " + fields[2].card.getActualSides()[0][0] + " " +   fields[2].card.getActualSides()[0][1] + " |\n"
-                + "|" + fields[0].card.getActualSides()[3][1] + "   " + fields[0].card.getActualSides()[1][0] + "||" +   fields[1].card.getActualSides()[3][1] + "   " + fields[1].card.getActualSides()[1][0] + "||" +   fields[2].card.getActualSides()[3][1] + "   " + fields[2].card.getActualSides()[1][0] + "|\n"
-                + "|" + fields[0].card.getActualSides()[3][0] + "   " + fields[0].card.getActualSides()[1][1] + "||" +   fields[1].card.getActualSides()[3][0] + "   " + fields[1].card.getActualSides()[1][1] + "||" +   fields[2].card.getActualSides()[3][0] + "   " + fields[2].card.getActualSides()[1][1] + "|\n"
-                +"|_" + fields[0].card.getActualSides()[2][1] + "_" +   fields[0].card.getActualSides()[2][0] + "_||_" + fields[1].card.getActualSides()[2][1] + "_" +   fields[1].card.getActualSides()[2][0] + "_||_" + fields[2].card.getActualSides()[2][1] + "_" +   fields[2].card.getActualSides()[2][0] + "_|\n"
+        return "\n| " + fields[0].getCard().getActualSides()[0][0] + " " +   fields[0].getCard().getActualSides()[0][1] + " || " + fields[1].getCard().getActualSides()[0][0] + " " +   fields[1].getCard().getActualSides()[0][1] + " || " + fields[2].getCard().getActualSides()[0][0] + " " +   fields[2].getCard().getActualSides()[0][1] + " |\n"
+                + "|" + fields[0].getCard().getActualSides()[3][1] + "   " + fields[0].getCard().getActualSides()[1][0] + "||" +   fields[1].getCard().getActualSides()[3][1] + "   " + fields[1].getCard().getActualSides()[1][0] + "||" +   fields[2].getCard().getActualSides()[3][1] + "   " + fields[2].getCard().getActualSides()[1][0] + "|\n"
+                + "|" + fields[0].getCard().getActualSides()[3][0] + "   " + fields[0].getCard().getActualSides()[1][1] + "||" +   fields[1].getCard().getActualSides()[3][0] + "   " + fields[1].getCard().getActualSides()[1][1] + "||" +   fields[2].getCard().getActualSides()[3][0] + "   " + fields[2].getCard().getActualSides()[1][1] + "|\n"
+                +"|_" + fields[0].getCard().getActualSides()[2][1] + "_" +   fields[0].getCard().getActualSides()[2][0] + "_||_" + fields[1].getCard().getActualSides()[2][1] + "_" +   fields[1].getCard().getActualSides()[2][0] + "_||_" + fields[2].getCard().getActualSides()[2][1] + "_" +   fields[2].getCard().getActualSides()[2][0] + "_|\n"
 
-                +"| " + fields[3].card.getActualSides()[0][0] + " " +   fields[3].card.getActualSides()[0][1] + " || " + fields[4].card.getActualSides()[0][0] + " " +   fields[4].card.getActualSides()[0][1] + " || " + fields[5].card.getActualSides()[0][0] + " " +   fields[5].card.getActualSides()[0][1] + " |\n"
-                + "|" + fields[3].card.getActualSides()[3][1] + "   " + fields[3].card.getActualSides()[1][0] + "||" +   fields[4].card.getActualSides()[3][1] + "   " + fields[4].card.getActualSides()[1][0] + "||" +   fields[5].card.getActualSides()[3][1] + "   " + fields[5].card.getActualSides()[1][0] + "|\n"
-                + "|" + fields[3].card.getActualSides()[3][0] + "   " + fields[3].card.getActualSides()[1][1] + "||" +   fields[4].card.getActualSides()[3][0] + "   " + fields[4].card.getActualSides()[1][1] + "||" +   fields[5].card.getActualSides()[3][0] + "   " + fields[5].card.getActualSides()[1][1] + "|\n"
-                +"|_" + fields[3].card.getActualSides()[2][1] + "_" +   fields[3].card.getActualSides()[2][0] + "_||_" + fields[4].card.getActualSides()[2][1] + "_" +   fields[4].card.getActualSides()[2][0] + "_||_" + fields[5].card.getActualSides()[2][1] + "_" +   fields[5].card.getActualSides()[2][0] + "_|\n"
+                +"| " + fields[3].getCard().getActualSides()[0][0] + " " +   fields[3].getCard().getActualSides()[0][1] + " || " + fields[4].getCard().getActualSides()[0][0] + " " +   fields[4].getCard().getActualSides()[0][1] + " || " + fields[5].getCard().getActualSides()[0][0] + " " +   fields[5].getCard().getActualSides()[0][1] + " |\n"
+                + "|" + fields[3].getCard().getActualSides()[3][1] + "   " + fields[3].getCard().getActualSides()[1][0] + "||" +   fields[4].getCard().getActualSides()[3][1] + "   " + fields[4].getCard().getActualSides()[1][0] + "||" +   fields[5].getCard().getActualSides()[3][1] + "   " + fields[5].getCard().getActualSides()[1][0] + "|\n"
+                + "|" + fields[3].getCard().getActualSides()[3][0] + "   " + fields[3].getCard().getActualSides()[1][1] + "||" +   fields[4].getCard().getActualSides()[3][0] + "   " + fields[4].getCard().getActualSides()[1][1] + "||" +   fields[5].getCard().getActualSides()[3][0] + "   " + fields[5].getCard().getActualSides()[1][1] + "|\n"
+                +"|_" + fields[3].getCard().getActualSides()[2][1] + "_" +   fields[3].getCard().getActualSides()[2][0] + "_||_" + fields[4].getCard().getActualSides()[2][1] + "_" +   fields[4].getCard().getActualSides()[2][0] + "_||_" + fields[5].getCard().getActualSides()[2][1] + "_" +   fields[5].getCard().getActualSides()[2][0] + "_|\n"
 
-                +"| " + fields[6].card.getActualSides()[0][0] + " " +   fields[6].card.getActualSides()[0][1] + " || " + fields[7].card.getActualSides()[0][0] + " " +   fields[7].card.getActualSides()[0][1] + " || " + fields[8].card.getActualSides()[0][0] + " " +   fields[8].card.getActualSides()[0][1] + " |\n"
-                + "|" + fields[6].card.getActualSides()[3][1] + "   " + fields[6].card.getActualSides()[1][0] + "||" +   fields[7].card.getActualSides()[3][1] + "   " + fields[7].card.getActualSides()[1][0] + "||" +   fields[8].card.getActualSides()[3][1] + "   " + fields[8].card.getActualSides()[1][0] + "|\n"
-                + "|" + fields[6].card.getActualSides()[3][0] + "   " + fields[6].card.getActualSides()[1][1] + "||" +   fields[7].card.getActualSides()[3][0] + "   " + fields[7].card.getActualSides()[1][1] + "||" +   fields[8].card.getActualSides()[3][0] + "   " + fields[8].card.getActualSides()[1][1] + "|\n"
-                +"|_" + fields[6].card.getActualSides()[2][1] + "_" +   fields[6].card.getActualSides()[2][0] + "_||_" + fields[7].card.getActualSides()[2][1] + "_" +   fields[7].card.getActualSides()[2][0] + "_||_" + fields[8].card.getActualSides()[2][1] + "_" +   fields[8].card.getActualSides()[2][0] + "_|\n";
+                +"| " + fields[6].getCard().getActualSides()[0][0] + " " +   fields[6].getCard().getActualSides()[0][1] + " || " + fields[7].getCard().getActualSides()[0][0] + " " +   fields[7].getCard().getActualSides()[0][1] + " || " + fields[8].getCard().getActualSides()[0][0] + " " +   fields[8].getCard().getActualSides()[0][1] + " |\n"
+                + "|" + fields[6].getCard().getActualSides()[3][1] + "   " + fields[6].getCard().getActualSides()[1][0] + "||" +   fields[7].getCard().getActualSides()[3][1] + "   " + fields[7].getCard().getActualSides()[1][0] + "||" +   fields[8].getCard().getActualSides()[3][1] + "   " + fields[8].getCard().getActualSides()[1][0] + "|\n"
+                + "|" + fields[6].getCard().getActualSides()[3][0] + "   " + fields[6].getCard().getActualSides()[1][1] + "||" +   fields[7].getCard().getActualSides()[3][0] + "   " + fields[7].getCard().getActualSides()[1][1] + "||" +   fields[8].getCard().getActualSides()[3][0] + "   " + fields[8].getCard().getActualSides()[1][1] + "|\n"
+                +"|_" + fields[6].getCard().getActualSides()[2][1] + "_" +   fields[6].getCard().getActualSides()[2][0] + "_||_" + fields[7].getCard().getActualSides()[2][1] + "_" +   fields[7].getCard().getActualSides()[2][0] + "_||_" + fields[8].getCard().getActualSides()[2][1] + "_" +   fields[8].getCard().getActualSides()[2][0] + "_|\n";
 
     }
 }
