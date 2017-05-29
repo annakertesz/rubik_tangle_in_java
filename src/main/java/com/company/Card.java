@@ -5,9 +5,9 @@ package com.company;
  */
 public class Card {
 
-    Color[][] actualSides;
-    Color[] colorsInZeroPosition;
-    int position;
+    private Color[][] actualSides;
+    private Color[] colorsInZeroPosition;
+    private int position;
 
 
     public Card(Color... colors) {
@@ -16,6 +16,12 @@ public class Card {
         position = 0;
     }
 
+
+    public Color[][] getActualSides() {
+        return actualSides;
+    }
+
+
     public int isSidesJoinable(Color[] sideToJoin, int neededSide){
         for (int i = 0; i<4; i++){
             if (actualSides[i][0] == sideToJoin[1] && actualSides[i][1] == sideToJoin[0]) {
@@ -23,23 +29,29 @@ public class Card {
                 return difference>=0 ? difference : 4+difference;
             }
         }
-//        System.out.println("    Can't find");
         return -1;
     }
 
 
+    public int getPosition() {
+        return position;
+    }
+
+
+    public void turnCard(){
+        setPosition(position+1);
+    }
+
+
     public void setPosition(int newPosition){
-//        System.out.println("    position setted to " + newPosition);
         actualSides = setSides(newPosition*2);
         position = newPosition;
     }
 
 
-
     public Color[] getSide(int side) {
         return  new Color[]{actualSides[side][0] , actualSides[side][1]};
     }
-
 
 
     private Color[][] setSides(int positionValue){
@@ -56,13 +68,6 @@ public class Card {
         return sides;
     }
 
-    public String colorListToString(){
-        String result = "";
-        for (Color color : colorsInZeroPosition){
-            result+=color;
-        }
-        return result;
-    }
 
     @Override
     public String toString(){

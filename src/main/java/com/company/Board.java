@@ -35,14 +35,12 @@ public class Board {
     private boolean placeCard(int indexOfField){
 
         if (indexOfField==9) return true;
-
-        // on the First Field
         if (indexOfField==0) {
             if (fields[0].card==null) {
                 fields[0].card=hand.get();
                 hand.remove(fields[0].card);
             }
-            else if (!placeFirstCard(fields[indexOfField].card.position+1)) return false;
+            else if (!placeFirstCard()) return false;
             return placeCard(indexOfField+1);
         }
 
@@ -62,8 +60,8 @@ public class Board {
 
     }
 
-    private boolean placeFirstCard(int position){
-         if (position==4){
+    private boolean placeFirstCard(){
+         if (fields[0].card.getPosition()==3){
              hand.add(fields[0].card);
              if (wasInFirstPlace.size()==9) return false;
              for (Card card : hand.inHand){
@@ -76,26 +74,26 @@ public class Board {
              }
 
         }
-        else fields[0].card.setPosition(position);
+        else fields[0].card.turnCard();
         return true;
     }
 
     @Override
     public String toString() {
-        return "\n| " + fields[0].card.actualSides[0][0] + " " +   fields[0].card.actualSides[0][1] + " || " + fields[1].card.actualSides[0][0] + " " +   fields[1].card.actualSides[0][1] + " || " + fields[2].card.actualSides[0][0] + " " +   fields[2].card.actualSides[0][1] + " |\n"
-                + "|" + fields[0].card.actualSides[3][1] + "   " + fields[0].card.actualSides[1][0] + "||" +   fields[1].card.actualSides[3][1] + "   " + fields[1].card.actualSides[1][0] + "||" +   fields[2].card.actualSides[3][1] + "   " + fields[2].card.actualSides[1][0] + "|\n"
-                + "|" + fields[0].card.actualSides[3][0] + "   " + fields[0].card.actualSides[1][1] + "||" +   fields[1].card.actualSides[3][0] + "   " + fields[1].card.actualSides[1][1] + "||" +   fields[2].card.actualSides[3][0] + "   " + fields[2].card.actualSides[1][1] + "|\n"
-                +"|_" + fields[0].card.actualSides[2][1] + "_" +   fields[0].card.actualSides[2][0] + "_||_" + fields[1].card.actualSides[2][1] + "_" +   fields[1].card.actualSides[2][0] + "_||_" + fields[2].card.actualSides[2][1] + "_" +   fields[2].card.actualSides[2][0] + "_|\n"
+        return "\n| " + fields[0].card.getActualSides()[0][0] + " " +   fields[0].card.getActualSides()[0][1] + " || " + fields[1].card.getActualSides()[0][0] + " " +   fields[1].card.getActualSides()[0][1] + " || " + fields[2].card.getActualSides()[0][0] + " " +   fields[2].card.getActualSides()[0][1] + " |\n"
+                + "|" + fields[0].card.getActualSides()[3][1] + "   " + fields[0].card.getActualSides()[1][0] + "||" +   fields[1].card.getActualSides()[3][1] + "   " + fields[1].card.getActualSides()[1][0] + "||" +   fields[2].card.getActualSides()[3][1] + "   " + fields[2].card.getActualSides()[1][0] + "|\n"
+                + "|" + fields[0].card.getActualSides()[3][0] + "   " + fields[0].card.getActualSides()[1][1] + "||" +   fields[1].card.getActualSides()[3][0] + "   " + fields[1].card.getActualSides()[1][1] + "||" +   fields[2].card.getActualSides()[3][0] + "   " + fields[2].card.getActualSides()[1][1] + "|\n"
+                +"|_" + fields[0].card.getActualSides()[2][1] + "_" +   fields[0].card.getActualSides()[2][0] + "_||_" + fields[1].card.getActualSides()[2][1] + "_" +   fields[1].card.getActualSides()[2][0] + "_||_" + fields[2].card.getActualSides()[2][1] + "_" +   fields[2].card.getActualSides()[2][0] + "_|\n"
 
-                +"| " + fields[3].card.actualSides[0][0] + " " +   fields[3].card.actualSides[0][1] + " || " + fields[4].card.actualSides[0][0] + " " +   fields[4].card.actualSides[0][1] + " || " + fields[5].card.actualSides[0][0] + " " +   fields[5].card.actualSides[0][1] + " |\n"
-                + "|" + fields[3].card.actualSides[3][1] + "   " + fields[3].card.actualSides[1][0] + "||" +   fields[4].card.actualSides[3][1] + "   " + fields[4].card.actualSides[1][0] + "||" +   fields[5].card.actualSides[3][1] + "   " + fields[5].card.actualSides[1][0] + "|\n"
-                + "|" + fields[3].card.actualSides[3][0] + "   " + fields[3].card.actualSides[1][1] + "||" +   fields[4].card.actualSides[3][0] + "   " + fields[4].card.actualSides[1][1] + "||" +   fields[5].card.actualSides[3][0] + "   " + fields[5].card.actualSides[1][1] + "|\n"
-                +"|_" + fields[3].card.actualSides[2][1] + "_" +   fields[3].card.actualSides[2][0] + "_||_" + fields[4].card.actualSides[2][1] + "_" +   fields[4].card.actualSides[2][0] + "_||_" + fields[5].card.actualSides[2][1] + "_" +   fields[5].card.actualSides[2][0] + "_|\n"
+                +"| " + fields[3].card.getActualSides()[0][0] + " " +   fields[3].card.getActualSides()[0][1] + " || " + fields[4].card.getActualSides()[0][0] + " " +   fields[4].card.getActualSides()[0][1] + " || " + fields[5].card.getActualSides()[0][0] + " " +   fields[5].card.getActualSides()[0][1] + " |\n"
+                + "|" + fields[3].card.getActualSides()[3][1] + "   " + fields[3].card.getActualSides()[1][0] + "||" +   fields[4].card.getActualSides()[3][1] + "   " + fields[4].card.getActualSides()[1][0] + "||" +   fields[5].card.getActualSides()[3][1] + "   " + fields[5].card.getActualSides()[1][0] + "|\n"
+                + "|" + fields[3].card.getActualSides()[3][0] + "   " + fields[3].card.getActualSides()[1][1] + "||" +   fields[4].card.getActualSides()[3][0] + "   " + fields[4].card.getActualSides()[1][1] + "||" +   fields[5].card.getActualSides()[3][0] + "   " + fields[5].card.getActualSides()[1][1] + "|\n"
+                +"|_" + fields[3].card.getActualSides()[2][1] + "_" +   fields[3].card.getActualSides()[2][0] + "_||_" + fields[4].card.getActualSides()[2][1] + "_" +   fields[4].card.getActualSides()[2][0] + "_||_" + fields[5].card.getActualSides()[2][1] + "_" +   fields[5].card.getActualSides()[2][0] + "_|\n"
 
-                +"| " + fields[6].card.actualSides[0][0] + " " +   fields[6].card.actualSides[0][1] + " || " + fields[7].card.actualSides[0][0] + " " +   fields[7].card.actualSides[0][1] + " || " + fields[8].card.actualSides[0][0] + " " +   fields[8].card.actualSides[0][1] + " |\n"
-                + "|" + fields[6].card.actualSides[3][1] + "   " + fields[6].card.actualSides[1][0] + "||" +   fields[7].card.actualSides[3][1] + "   " + fields[7].card.actualSides[1][0] + "||" +   fields[8].card.actualSides[3][1] + "   " + fields[8].card.actualSides[1][0] + "|\n"
-                + "|" + fields[6].card.actualSides[3][0] + "   " + fields[6].card.actualSides[1][1] + "||" +   fields[7].card.actualSides[3][0] + "   " + fields[7].card.actualSides[1][1] + "||" +   fields[8].card.actualSides[3][0] + "   " + fields[8].card.actualSides[1][1] + "|\n"
-                +"|_" + fields[6].card.actualSides[2][1] + "_" +   fields[6].card.actualSides[2][0] + "_||_" + fields[7].card.actualSides[2][1] + "_" +   fields[7].card.actualSides[2][0] + "_||_" + fields[8].card.actualSides[2][1] + "_" +   fields[8].card.actualSides[2][0] + "_|\n";
+                +"| " + fields[6].card.getActualSides()[0][0] + " " +   fields[6].card.getActualSides()[0][1] + " || " + fields[7].card.getActualSides()[0][0] + " " +   fields[7].card.getActualSides()[0][1] + " || " + fields[8].card.getActualSides()[0][0] + " " +   fields[8].card.getActualSides()[0][1] + " |\n"
+                + "|" + fields[6].card.getActualSides()[3][1] + "   " + fields[6].card.getActualSides()[1][0] + "||" +   fields[7].card.getActualSides()[3][1] + "   " + fields[7].card.getActualSides()[1][0] + "||" +   fields[8].card.getActualSides()[3][1] + "   " + fields[8].card.getActualSides()[1][0] + "|\n"
+                + "|" + fields[6].card.getActualSides()[3][0] + "   " + fields[6].card.getActualSides()[1][1] + "||" +   fields[7].card.getActualSides()[3][0] + "   " + fields[7].card.getActualSides()[1][1] + "||" +   fields[8].card.getActualSides()[3][0] + "   " + fields[8].card.getActualSides()[1][1] + "|\n"
+                +"|_" + fields[6].card.getActualSides()[2][1] + "_" +   fields[6].card.getActualSides()[2][0] + "_||_" + fields[7].card.getActualSides()[2][1] + "_" +   fields[7].card.getActualSides()[2][0] + "_||_" + fields[8].card.getActualSides()[2][1] + "_" +   fields[8].card.getActualSides()[2][0] + "_|\n";
 
     }
 }
