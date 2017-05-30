@@ -44,6 +44,7 @@ public class BoardField {
         if (neededPosition==4) neededPosition=0;
         cardToInsert.setPosition(neededPosition);
         this.card = cardToInsert;
+        clearHistory();
         hand.remove(cardToInsert);
         return true;
 

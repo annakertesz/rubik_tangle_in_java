@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Board {
 
     private BoardField[] fields;
-    private ArrayList<Card> formerCards;
+    public ArrayList<Card> formerCards;
 
 
     public Board(BoardField[] fields) {
@@ -32,11 +32,13 @@ public class Board {
     }
 
 
-    public void addToHistory(Card card) {formerCards.add(card);}
+    public void addToHistory(Card card) {
+        formerCards.add(card);}
 
 
     public void placeFirstCard(Hand hand){
         fields[0].placeCard(hand.get(), hand);
+        hand.remove(fields[0].getCard());
     }
 
 

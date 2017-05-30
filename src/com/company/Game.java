@@ -17,7 +17,7 @@ public class Game {
     private Game() {
         this.board = new Board(getMediumBoard());
         this.hand = new Hand(getTwoSidedCards());
-        this.currentField = 1;
+        this.currentField = 0;
     }
 
 
@@ -27,12 +27,12 @@ public class Game {
 
 
     public void makePuzzle(){
-        board.placeFirstCard(hand);
         while (hand.size()>0){
             if (!placeCard(currentField)) {
-                board.getField(currentField-1).removeCard(hand);
+                if (currentField>1) board.getField(currentField-1).removeCard(hand);
                 if (placeCard(currentField-1)) break;
             }
+            else System.out.println(currentField);
         }
         System.out.println(board);
 
@@ -41,34 +41,43 @@ public class Game {
 
     private boolean placeCard(int indexOfField){
         currentField = indexOfField;
-        if (indexOfField > 5) {
-            System.out.println("szar");
-        }
-        System.out.println(currentField + " " + (currentField==9));
+//        System.out.println(indexOfField);
+//        System.out.println(hand.size());
+//        System.out.println(board.formerCards);
         if (currentField==9) return true;
-        if (indexOfField==0) return (placeFirstCard()) && placeCard(indexOfField+1);
+        if (indexOfField==0) {
+            System.out.println("in zero");
+            if (!placeFirstCard()) return false;
+            return placeCard(indexOfField + 1);
+        }
         else{
+            hand.add(board.getField(indexOfField-1).getCard());
             for (Card card : hand.getHand()){
                 if (board.getField(indexOfField-1).wasNeighbour(card)) continue;
                 if (board.getField(indexOfField).placeCard(card, hand)){
+                    board.getField(indexOfField).clearHistory();
                     board.getField(indexOfField-1).addNeighbourhood(card);
                     return placeCard(indexOfField+1);
                 }
             }
-            board.getField(indexOfField-1).removeCard(hand);
+
             return false;
         }
     }
 
 
     private boolean placeFirstCard(){
+        System.out.println("I'm in placefirstcard");
         BoardField firstField = board.getField(0);
         if (firstField.isEmpty()) {
+            System.out.println("It thinks it's empty");
             firstField.placeCard(hand.get(), hand);
+            hand.remove(firstField.getCard());
             return true;
         }
         int position = firstField.getCardPosition();
         if (position==3){
+            System.out.println("put new to first place");
             firstField.removeCard(hand);
             if (board.triedAllPossibilities()) return false;
             for (Card card : hand.getHand()){
@@ -79,7 +88,10 @@ public class Game {
                 break;
             }
         }
-        else firstField.turnCard(position+1);
+        else {
+            System.out.println("turn first");
+            firstField.turnCard(position+1);
+        }
         return true;
     }
 
