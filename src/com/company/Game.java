@@ -17,7 +17,7 @@ public class Game {
     private Game() {
         this.board = new Board(getMediumBoard());
         this.hand = new Hand(getTwoSidedCards());
-        this.currentField = 0;
+        this.currentField = 1;
     }
 
 
@@ -28,18 +28,21 @@ public class Game {
 
     public void makePuzzle(){
         while (hand.size()>0){
-            if (!placeCard(currentField)) {
+//            if (!placeCard(currentField)) {
                 if (currentField>1) board.getField(currentField-1).removeCard(hand);
                 if (placeCard(currentField-1)) break;
-            }
-            else System.out.println(currentField);
+//            }
+//            else System.out.println(currentField);
         }
+        System.out.println(board.getField(1).getCard());
         System.out.println(board);
 
     }
 
 
     private boolean placeCard(int indexOfField){
+
+        if (currentField==1) System.out.println("line 45" + board.getField(1).getCard());
         currentField = indexOfField;
 //        System.out.println(indexOfField);
 //        System.out.println(hand.size());
@@ -51,12 +54,14 @@ public class Game {
             return placeCard(indexOfField + 1);
         }
         else{
-            hand.add(board.getField(indexOfField-1).getCard());
+//            hand.add(board.getField(indexOfField-1).getCard());
             for (Card card : hand.getHand()){
                 if (board.getField(indexOfField-1).wasNeighbour(card)) continue;
                 if (board.getField(indexOfField).placeCard(card, hand)){
-                    board.getField(indexOfField).clearHistory();
+//                    board.getField(indexOfField).clearHistory();
                     board.getField(indexOfField-1).addNeighbourhood(card);
+                    if (currentField==1) System.out.println("line 61" + board.getField(1).getCard());
+//                    if (currentField==2) System.out.println(board.getField(1).getCard());
                     return placeCard(indexOfField+1);
                 }
             }
