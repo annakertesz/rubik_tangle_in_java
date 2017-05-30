@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee40bce0-2153-4d58-bc5c-f1d14dc4a53d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/rubik/com/company/Board.class" afterPath="$PROJECT_DIR$/out/production/rubik/com/company/Board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/rubik/com/company/BoardField.class" afterPath="$PROJECT_DIR$/out/production/rubik/com/company/BoardField.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/rubik/com/company/Card.class" afterPath="$PROJECT_DIR$/out/production/rubik/com/company/Card.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/rubik/com/company/Hand.class" afterPath="$PROJECT_DIR$/out/production/rubik/com/company/Hand.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/rubik/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/rubik/com/company/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/rubik/com/company/Game.class" afterPath="$PROJECT_DIR$/out/production/rubik/com/company/Game.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Board.java" afterPath="$PROJECT_DIR$/src/com/company/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/BoardField.java" afterPath="$PROJECT_DIR$/src/com/company/BoardField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Card.java" afterPath="$PROJECT_DIR$/src/com/company/Card.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Hand.java" afterPath="$PROJECT_DIR$/src/com/company/Hand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Main.java" afterPath="$PROJECT_DIR$/src/com/company/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Game.java" afterPath="$PROJECT_DIR$/src/com/company/Game.java" />
     </list>
     <ignored path="rubik.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
+            <state relative-caret-position="29">
               <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
               <folding>
                 <element signature="method#Board#0;class#Board#0" expanded="false" />
@@ -58,19 +51,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+            <state relative-caret-position="30">
+              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Game#0;class#Game#0" expanded="false" />
-                <element signature="method#makePuzzle#0;class#Game#0" expanded="false" />
-                <element signature="method#placeCard#0;class#Game#0" expanded="false" />
                 <element signature="method#placeFirstCard#0;class#Game#0" expanded="false" />
-                <element signature="method#getTwoSidedCards#0;class#Game#0" expanded="false" />
-                <element signature="method#getMediumBoard#0;class#Game#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Card.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+              <folding>
+                <element signature="method#Card#0;class#Card#0" expanded="false" />
+                <element signature="method#setOtherSide#0;class#Card#0" expanded="false" />
+                <element signature="method#setPosition#0;class#Card#0" expanded="false" />
+                <element signature="method#setEdges#0;class#Card#0" expanded="false" />
+                <element signature="method#toString#0;class#Card#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -79,7 +84,7 @@
       <file leaf-file-name="Hand.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Hand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
+            <state relative-caret-position="486">
               <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
               <folding>
                 <element signature="method#remove#0;class#Hand#0" expanded="false" />
@@ -92,14 +97,11 @@
       <file leaf-file-name="BoardField.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/BoardField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+            <state relative-caret-position="160">
+              <caret line="38" column="90" selection-start-line="38" selection-start-column="90" selection-end-line="38" selection-end-column="90" />
               <folding>
-                <element signature="method#BoardField#0;class#BoardField#0" expanded="false" />
-                <element signature="method#removeCard#0;class#BoardField#0" expanded="false" />
-                <element signature="method#placeCard#0;class#BoardField#0" expanded="false" />
-                <element signature="e#1657#1658#0" expanded="true" />
-                <element signature="method#calculateRightPosition#0;class#BoardField#0" expanded="false" />
+                <element signature="e#2582#2583#0" expanded="true" />
+                <element signature="e#2609#2610#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,12 +135,12 @@
         <option value="$PROJECT_DIR$/src/com/company/BoardAsGraph.java" />
         <option value="$PROJECT_DIR$/src/com/company/Player.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Card.java" />
         <option value="$PROJECT_DIR$/src/com/company/Hand.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Game.java" />
-        <option value="$PROJECT_DIR$/src/com/company/BoardField.java" />
         <option value="$PROJECT_DIR$/src/com/company/Garbage.java" />
         <option value="$PROJECT_DIR$/src/com/company/Board.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Card.java" />
+        <option value="$PROJECT_DIR$/src/com/company/BoardField.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Game.java" />
       </list>
     </option>
   </component>
@@ -179,12 +181,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -645,11 +647,12 @@
       <workItem from="1495820492703" duration="18291000" />
       <workItem from="1495869799285" duration="40119000" />
       <workItem from="1495923330033" duration="12900000" />
+      <workItem from="1496137632314" duration="1724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75375000" />
+    <option name="totallyTimeSpent" value="77099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="33" y="15" width="1247" height="705" extended-state="6" />
@@ -662,8 +665,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3857868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3857868" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -672,7 +675,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57698816" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.57698816" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -695,7 +698,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/Game.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -706,11 +717,62 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#Board#0;class#Board#0" expanded="false" />
+            <element signature="method#toString#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Game#0;class#Game#0" expanded="false" />
+            <element signature="method#placeFirstCard#0;class#Game#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Hand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+          <folding>
+            <element signature="method#remove#0;class#Hand#0" expanded="false" />
+            <element signature="method#add#0;class#Hand#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/BoardField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
+          <folding>
+            <element signature="e#2582#2583#0" expanded="true" />
+            <element signature="e#2609#2610#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="774">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -734,7 +796,6 @@
             <element signature="method#setOtherSide#0;class#Card#0" expanded="false" />
             <element signature="method#setPosition#0;class#Card#0" expanded="false" />
             <element signature="method#setEdges#0;class#Card#0" expanded="false" />
-            <element signature="method#isEdgesJoinable#0;class#Card#0" expanded="false" />
             <element signature="method#toString#0;class#Card#0" expanded="false" />
           </folding>
         </state>
@@ -756,11 +817,8 @@
         <state relative-caret-position="666">
           <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
           <folding>
-            <element signature="method#BoardField#0;class#BoardField#0" expanded="false" />
-            <element signature="method#removeCard#0;class#BoardField#0" expanded="false" />
-            <element signature="method#placeCard#0;class#BoardField#0" expanded="false" />
-            <element signature="e#1657#1658#0" expanded="true" />
-            <element signature="method#calculateRightPosition#0;class#BoardField#0" expanded="false" />
+            <element signature="e#2582#2583#0" expanded="true" />
+            <element signature="e#2609#2610#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -769,9 +827,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -795,7 +851,6 @@
             <element signature="method#setOtherSide#0;class#Card#0" expanded="false" />
             <element signature="method#setPosition#0;class#Card#0" expanded="false" />
             <element signature="method#setEdges#0;class#Card#0" expanded="false" />
-            <element signature="method#isEdgesJoinable#0;class#Card#0" expanded="false" />
             <element signature="method#toString#0;class#Card#0" expanded="false" />
           </folding>
         </state>
@@ -806,11 +861,8 @@
         <state relative-caret-position="504">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
-            <element signature="method#BoardField#0;class#BoardField#0" expanded="false" />
-            <element signature="method#removeCard#0;class#BoardField#0" expanded="false" />
-            <element signature="method#placeCard#0;class#BoardField#0" expanded="false" />
-            <element signature="e#1657#1658#0" expanded="true" />
-            <element signature="method#calculateRightPosition#0;class#BoardField#0" expanded="false" />
+            <element signature="e#2582#2583#0" expanded="true" />
+            <element signature="e#2609#2610#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -819,9 +871,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -834,7 +884,6 @@
             <element signature="method#setOtherSide#0;class#Card#0" expanded="false" />
             <element signature="method#setPosition#0;class#Card#0" expanded="false" />
             <element signature="method#setEdges#0;class#Card#0" expanded="false" />
-            <element signature="method#isEdgesJoinable#0;class#Card#0" expanded="false" />
             <element signature="method#toString#0;class#Card#0" expanded="false" />
           </folding>
         </state>
@@ -849,14 +898,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Position.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/company/Color.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/BoardAsGraph.java" />
     <entry file="file://$PROJECT_DIR$/src/com/company/Player.java" />
     <entry file="uml://JAVA/com.company.Main">
@@ -900,7 +941,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.5842332613390929" x="240.26617375231035" y="533.0" />
+          <settings layout="Hierarchic Group" zoom="0.5842332613390929" x="240.0" y="533.0" />
           <SelectedNodes />
           <Categories>
             <Category>Fields</Category>
@@ -911,44 +952,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="method#Card#0;class#Card#0" expanded="false" />
-            <element signature="method#setOtherSide#0;class#Card#0" expanded="false" />
-            <element signature="method#setPosition#0;class#Card#0" expanded="false" />
-            <element signature="method#setEdges#0;class#Card#0" expanded="false" />
-            <element signature="method#isEdgesJoinable#0;class#Card#0" expanded="false" />
-            <element signature="method#toString#0;class#Card#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Hand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
+        <state relative-caret-position="486">
           <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
           <folding>
             <element signature="method#remove#0;class#Hand#0" expanded="false" />
             <element signature="method#add#0;class#Hand#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Game#0;class#Game#0" expanded="false" />
-            <element signature="method#makePuzzle#0;class#Game#0" expanded="false" />
-            <element signature="method#placeCard#0;class#Game#0" expanded="false" />
-            <element signature="method#placeFirstCard#0;class#Game#0" expanded="false" />
-            <element signature="method#getTwoSidedCards#0;class#Game#0" expanded="false" />
-            <element signature="method#getMediumBoard#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -961,35 +971,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/BoardField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
-          <folding>
-            <element signature="method#BoardField#0;class#BoardField#0" expanded="false" />
-            <element signature="method#removeCard#0;class#BoardField#0" expanded="false" />
-            <element signature="method#placeCard#0;class#BoardField#0" expanded="false" />
-            <element signature="e#1657#1658#0" expanded="true" />
-            <element signature="method#calculateRightPosition#0;class#BoardField#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Garbage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Garbage.java" />
     <entry file="file://$PROJECT_DIR$/src/com/company/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
+        <state relative-caret-position="29">
           <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
           <folding>
             <element signature="method#Board#0;class#Board#0" expanded="false" />
             <element signature="method#toString#0;class#Board#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding>
+            <element signature="method#Card#0;class#Card#0" expanded="false" />
+            <element signature="method#setOtherSide#0;class#Card#0" expanded="false" />
+            <element signature="method#setPosition#0;class#Card#0" expanded="false" />
+            <element signature="method#setEdges#0;class#Card#0" expanded="false" />
+            <element signature="method#toString#0;class#Card#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/BoardField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="38" column="90" selection-start-line="38" selection-start-column="90" selection-end-line="38" selection-end-column="90" />
+          <folding>
+            <element signature="e#2582#2583#0" expanded="true" />
+            <element signature="e#2609#2610#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Game#0;class#Game#0" expanded="false" />
+            <element signature="method#placeFirstCard#0;class#Game#0" expanded="false" />
           </folding>
         </state>
       </provider>

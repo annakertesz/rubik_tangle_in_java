@@ -31,9 +31,8 @@ public class Game {
         while (hand.size()>0){
             if (!placeCard(currentField)) {
                 board.getField(currentField-1).removeCard(hand);
-                placeCard(currentField-1);
+                if (placeCard(currentField-1)) break;
             }
-            else break;
         }
         System.out.println(board);
 
@@ -42,7 +41,11 @@ public class Game {
 
     private boolean placeCard(int indexOfField){
         currentField = indexOfField;
-        if (indexOfField==9) return true;
+        if (indexOfField > 5) {
+            System.out.println("szar");
+        }
+        System.out.println(currentField + " " + (currentField==9));
+        if (currentField==9) return true;
         if (indexOfField==0) return (placeFirstCard()) && placeCard(indexOfField+1);
         else{
             for (Card card : hand.getHand()){
@@ -102,6 +105,27 @@ public class Game {
         Card eighthB = new Card(Color.Y, Color.G, Color.B, Color.R, Color.Y, Color.R, Color.G, Color.B);
         Card ninthB = new Card(Color.Y, Color.R, Color.B, Color.G, Color.Y, Color.G, Color.R, Color.B);
 
+
+//        Card firstA = new Card(Color.R, Color.G, Color.Y, Color.R, Color.G, Color.B, Color.Y, Color.B);
+//        Card secondA = new Card(Color.B, Color.Y, Color.G, Color.B, Color.Y, Color.R, Color.G, Color.R);
+//        Card thirdA = new Card(Color.R, Color.G, Color.B, Color.R, Color.G, Color.Y, Color.B, Color.Y);
+//        Card forthA = new Card(Color.G, Color.R, Color.Y, Color.G, Color.R, Color.B, Color.Y, Color.B);
+//        Card fifthA = new Card(Color.G, Color.Y, Color.R, Color.G, Color.Y, Color.B, Color.R, Color.B);
+//        Card sixthA = new Card(Color.B, Color.Y, Color.R, Color.B, Color.Y, Color.G, Color.R, Color.G);
+//        Card seventhA = new Card(Color.G, Color.B, Color.Y, Color.G, Color.B, Color.R, Color.Y, Color.R);
+//        Card eighthA = new Card(Color.Y, Color.B, Color.G, Color.Y, Color.B, Color.R, Color.G, Color.R);
+//        Card ninthA = new Card(Color.B, Color.G, Color.R, Color.B, Color.G, Color.Y, Color.R, Color.Y);
+//
+//        Card firstB = new Card(Color.R, Color.G, Color.Y, Color.R, Color.G, Color.B, Color.Y, Color.B);
+//        Card secondB = new Card(Color.B, Color.Y, Color.G, Color.B, Color.Y, Color.R, Color.G, Color.R);
+//        Card thirdB = new Card(Color.R, Color.G, Color.B, Color.R, Color.G, Color.Y, Color.B, Color.Y);
+//        Card forthB = new Card(Color.G, Color.R, Color.Y, Color.G, Color.R, Color.B, Color.Y, Color.B);
+//        Card fifthB = new Card(Color.G, Color.Y, Color.R, Color.G, Color.Y, Color.B, Color.R, Color.B);
+//        Card sixthB = new Card(Color.B, Color.Y, Color.R, Color.B, Color.Y, Color.G, Color.R, Color.G);
+//        Card seventhB = new Card(Color.G, Color.B, Color.Y, Color.G, Color.B, Color.R, Color.Y, Color.R);
+//        Card eighthB = new Card(Color.Y, Color.B, Color.G, Color.Y, Color.B, Color.R, Color.G, Color.R);
+//        Card ninthB = new Card(Color.B, Color.G, Color.R, Color.B, Color.G, Color.Y, Color.R, Color.Y);
+
         firstA.setOtherSide(firstB);
         secondA.setOtherSide(secondB);
         thirdA.setOtherSide(thirdB);
@@ -119,16 +143,15 @@ public class Game {
 
     private BoardField[] getMediumBoard(){
         BoardField[] fields = new BoardField[9];
-        fields[0] = new BoardField(new BoardField[]{null,null});
-        fields[1] = new BoardField(new BoardField[]{null,fields[0]});
-        fields[2] = new BoardField(new BoardField[]{null,fields[1]});
-        fields[3] = new BoardField(new BoardField[]{fields[0],null});
-        fields[4] = new BoardField(new BoardField[]{fields[1],fields[3]});
-        fields[5] = new BoardField(new BoardField[]{fields[2],fields[4]});
-        fields[6] = new BoardField(new BoardField[]{fields[3],null});
-        fields[7] = new BoardField(new BoardField[]{fields[4],fields[6]});
-        fields[8] = new BoardField(new BoardField[]{fields[5],fields[7]});
+        fields[0] = new BoardField(null,null);
+        fields[1] = new BoardField(null,fields[0]);
+        fields[2] = new BoardField(null,fields[1]);
+        fields[3] = new BoardField(fields[0],null);
+        fields[4] = new BoardField(fields[1],fields[3]);
+        fields[5] = new BoardField(fields[2],fields[4]);
+        fields[6] = new BoardField(fields[3],null);
+        fields[7] = new BoardField(fields[4],fields[6]);
+        fields[8] = new BoardField(fields[5],fields[7]);
         return fields;
     }
-
 }
